@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { MdOutlineLibraryBooks } from "react-icons/md";
+import { questions } from "./data";
 import Question from "./Question";
 function Faq() {
   return (
     <>
-      <div className="flex justify-center   w-screen h-screen">
+      <div className="flex justify-center   w-screen h-screen p-1 items-center">
         <section className="faq-sec w-96 h-auto   ">
           <div className="container text-center p-2 flex flex-col justify-center items-center">
             <MdOutlineLibraryBooks
@@ -21,7 +22,9 @@ function Faq() {
             </p>
           </div>
           <div className="qst">
-            <Question />
+            {questions.map((qst) => (
+              <Question key={qst.id} title={qst.title} answer={qst.answer} />
+            ))}
           </div>
         </section>
       </div>
